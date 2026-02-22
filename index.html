@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRTX Tours N Travels | Sacred Journeys, Luxurious Comfort</title>
+    <meta name="description" content="Premium spiritual travel experiences with divine hospitality. Specializing in Tirupati, Rameshwaram, and sacred South India destinations.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+
+
+    <!-- GSAP for premium animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: {
+                            50: '#FFF8E7',
+                            100: '#FFE4B5',
+                            200: '#FFD700',
+                            300: '#FF9933',
+                            400: '#FF8C00',
+                            500: '#FF7700',
+                            600: '#E85D04',
+                        },
+                        divine: {
+                            blue: '#1E3A8A',
+                            gold: '#D4AF37',
+                            cream: '#FFFDD0',
+                            charcoal: '#1F2937',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'mandala-pattern': "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23FF9933\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+    
+</head>
+<body class="text-divine-charcoal antialiased pt-[80px]">
+
+
+    <!-- Loader -->
+    <div id="loader" class="loader-overlay">
+        <div class="text-center">
+            <div class="font-divine text-4xl text-saffron-500 mb-4 animate-pulse">Om</div>
+            <div class="text-divine-blue font-medium">Loading Divine Experience...</div>
+        </div>
+    </div> 
+
+    <!-- Navigation -->
+     <custom-navbar></custom-navbar>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Parallax -->
+        <div id="heroBg" class="absolute inset-0 z-0">
+            <img src="http://static.photos/nature/1200x630/108" alt="Divine Landscape" class="w-full h-full object-cover scale-110">
+            <div class="absolute inset-0 bg-gradient-to-b from-divine-blue/80 via-divine-blue/50 to-saffron-100/90"></div>
+            <div class="absolute inset-0 bg-mandala-pattern opacity-30"></div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+            <div class="absolute top-20 left-10 w-32 h-32 border border-white/20 rounded-full float-anim" style="animation-delay: 0s;"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 border border-saffron-300/30 rounded-full float-anim" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-40 left-1/4 w-16 h-16 bg-white/10 rounded-full float-anim" style="animation-delay: 4s;"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 reveal-text">
+                <span class="w-2 h-2 bg-saffron-500 rounded-full animate-pulse"></span>
+                <span class="text-sm font-medium text-black">Est. 1995 • Serving 50,000+ Devotees</span>
+            </div>
+            
+            <h1 class="font-elegant text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight reveal-text">
+                Sacred Journeys,<br>
+                <span class="text-gradient">Divine Comfort</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 font-light reveal-text leading-relaxed">
+                Experience the divine grace of Tirupati and sacred destinations across South India 
+                with personalized service that honors your spiritual journey.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal-text">
+                <button onclick="scrollToSection('destinations')" class="btn-premium bg-white text-divine-blue px-8 py-4 rounded-full font-semibold shadow-2xl hover:shadow-white/20 transform hover:-translate-y-1 transition-all flex items-center gap-2 group">
+                    Explore Destinations
+                    <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <button onclick="openVideoModal()" class="flex items-center gap-3 text-white hover:text-saffron-200 transition-colors group">
+                    <div class="w-14 h-14 rounded-full border-2 border-white/50 flex items-center justify-center group-hover:border-saffron-300 group-hover:bg-white/10 transition-all">
+                        <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <span class="font-medium">Watch Our Story</span>
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto reveal-text">
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white font-divine">28+</div>
+                    <div class="text-sm text-white/80 mt-1">Years of Service</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white font-divine">50k+</div>
+                    <div class="text-sm text-white/80 mt-1">Happy Pilgrims</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white font-divine">100%</div>
+                    <div class="text-sm text-white/80 mt-1">Safety Record</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white font-divine">4.9</div>
+                    <div class="text-sm text-white/80 mt-1">★★★★★ Rating</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+            <i data-lucide="chevron-down" class="w-6 h-6 text-white/70"></i>
+        </div>
+    </section>
+
+    <!-- Trust Badges Section -->
+    <section class="py-12 bg-white border-y border-saffron-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60">
+                <div class="flex items-center gap-2 text-sm font-medium text-gray-500">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-saffron-500"></i>
+                    TTD Authorized Agent
+                </div>
+                <div class="flex items-center gap-2 text-sm font-medium text-gray-500">
+                    <i data-lucide="award" class="w-5 h-5 text-saffron-500"></i>
+                    ISO 9001:2015 Certified
+                </div>
+                <div class="flex items-center gap-2 text-sm font-medium text-gray-500">
+                    <i data-lucide="badge-check" class="w-5 h-5 text-saffron-500"></i>
+                    Ministry of Tourism Approved
+                </div>
+                <div class="flex items-center gap-2 text-sm font-medium text-gray-500">
+                    <i data-lucide="star" class="w-5 h-5 text-saffron-500"></i>
+                    Best Pilgrimage Operator 2023
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section id="destinations" class="py-24 bg-saffron-50 sacred-pattern relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 rounded-full bg-saffron-100 text-saffron-600 text-sm font-semibold mb-4 reveal-text">
+                    Sacred Destinations
+                </span>
+                <h2 class="font-elegant text-4xl md:text-5xl font-bold text-divine-charcoal mb-4 reveal-text">
+                    Journeys That Transform
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto reveal-text">
+                    From the seven hills of Tirumala to the shores of Rameshwaram, 
+                    we curate experiences that connect you with the divine.
+                </p>
+            </div>
+
+            <!-- Destinations Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Tirupati -->
+                <div class="group relative bg-white rounded-2xl overflow-hidden card-lift cursor-pointer reveal-image" onclick="showDestinationDetails('tirupati')">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.pexels.com/photos/11078630/pexels-photo-11078630.jpeg" alt="Tirupati Temple" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-saffron-600">
+                            MOST POPULAR
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="font-elegant text-2xl font-bold">Tirumala Tirupati</h3>
+                            <p class="text-sm text-white/90 flex items-center gap-1 mt-1">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Andhra Pradesh
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-sm text-gray-500">Starting from</p>
+                                <p class="text-2xl font-bold text-saffron-600">₹4,999</p>
+                            </div>
+                            <div class="flex items-center gap-1 text-sm text-gray-600">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                2 Days
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Experience the divine darshan of Lord Venkateswara with VIP access, 
+                            premium accommodation, and personalized temple tours.
+                        </p>
+                        <button class="w-full py-3 rounded-xl border-2 border-saffron-200 text-saffron-600 font-semibold hover:bg-saffron-500 hover:text-white hover:border-saffron-500 transition-all flex items-center justify-center gap-2 group">
+                            View Package
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Rameshwaram -->
+                <div class="group relative bg-white rounded-2xl overflow-hidden card-lift cursor-pointer reveal-image" onclick="showDestinationDetails('rameshwaram')">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://as2.ftcdn.net/v2/jpg/08/07/70/75/1000_F_807707587_Bi1QpBLNnNk5osI7STJdnsLi0vVToSwX.jpg" alt="Rameshwaram Temple" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="font-elegant text-2xl font-bold">Rameshwaram</h3>
+                            <p class="text-sm text-white/90 flex items-center gap-1 mt-1">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Tamil Nadu
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-sm text-gray-500">Starting from</p>
+                                <p class="text-2xl font-bold text-saffron-600">₹8,499</p>
+                            </div>
+                            <div class="flex items-center gap-1 text-sm text-gray-600">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                3 Days
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Visit the sacred island where Lord Rama built the bridge to Lanka. 
+                            Includes Pamban Bridge visit and Agni Theertham holy dip.
+                        </p>
+                        <button class="w-full py-3 rounded-xl border-2 border-saffron-200 text-saffron-600 font-semibold hover:bg-saffron-500 hover:text-white hover:border-saffron-500 transition-all flex items-center justify-center gap-2 group">
+                            View Package
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Kanyakumari -->
+                <div class="group relative bg-white rounded-2xl overflow-hidden card-lift cursor-pointer reveal-image" onclick="showDestinationDetails('kanyakumari')">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://as1.ftcdn.net/v2/jpg/04/37/06/66/1000_F_437066688_Z1MEmXciB8h9pxatdeszDkFNAJ7mzRWP.jpg" alt="Kanyakumari" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-divine-blue/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-white">
+                            SPIRITUAL
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="font-elegant text-2xl font-bold">Kanyakumari</h3>
+                            <p class="text-sm text-white/90 flex items-center gap-1 mt-1">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Tamil Nadu
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-sm text-gray-500">Starting from</p>
+                                <p class="text-2xl font-bold text-saffron-600">₹6,999</p>
+                            </div>
+                            <div class="flex items-center gap-1 text-sm text-gray-600">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                2 Days
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Witness the confluence of three oceans and visit the sacred 
+                            Kanyakumari Temple dedicated to the Virgin Goddess.
+                        </p>
+                        <button class="w-full py-3 rounded-xl border-2 border-saffron-200 text-saffron-600 font-semibold hover:bg-saffron-500 hover:text-white hover:border-saffron-500 transition-all flex items-center justify-center gap-2 group">
+                            View Package
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="text-center mt-12">
+                <button class="btn-premium inline-flex items-center gap-2 px-8 py-4 rounded-full bg-divine-blue text-white font-semibold hover:bg-divine-blue/90 transition-all shadow-lg hover:shadow-divine-blue/30">
+                    View All 15+ Destinations
+                    <i data-lucide="compass" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us / Services -->
+    <section id="services" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Content -->
+                <div>
+                    <span class="inline-block px-4 py-1 rounded-full bg-divine-blue/10 text-divine-blue text-sm font-semibold mb-4 reveal-text">
+                        Our Promise
+                    </span>
+                    <h2 class="font-elegant text-4xl md:text-5xl font-bold text-divine-charcoal mb-6 reveal-text">
+                        Service That Honors<br>Your Faith
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-8 reveal-text leading-relaxed">
+                        We understand that pilgrimage is not just travel—it's a sacred commitment. 
+                        Every detail of your journey is crafted with reverence, comfort, and authenticity.
+                    </p>
+
+                    <!-- Features Grid -->
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="flex gap-4 reveal-text">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-saffron-100 flex items-center justify-center">
+                                <i data-lucide="crown" class="w-6 h-6 text-saffron-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-divine-charcoal mb-1">VIP Darshan Access</h4>
+                                <p class="text-sm text-gray-600">Skip the lines with our special quota arrangements</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 reveal-text">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-saffron-100 flex items-center justify-center">
+                                <i data-lucide="hotel" class="w-6 h-6 text-saffron-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-divine-charcoal mb-1">Premium Stays</h4>
+                                <p class="text-sm text-gray-600">Handpicked hotels near temple premises</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 reveal-text">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-saffron-100 flex items-center justify-center">
+                                <i data-lucide="car" class="w-6 h-6 text-saffron-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-divine-charcoal mb-1">Luxury Transport</h4>
+                                <p class="text-sm text-gray-600">AC vehicles with experienced drivers</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 reveal-text">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-saffron-100 flex items-center justify-center">
+                                <i data-lucide="user-check" class="w-6 h-6 text-saffron-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-divine-charcoal mb-1">Personal Guide</h4>
+                                <p class="text-sm text-gray-600">Knowledgeable guides for rituals & history</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 reveal-text">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-saffron-100 flex items-center justify-center">
+                                <i data-lucide="utensils" class="w-6 h-6 text-saffron-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-divine-charcoal mb-1">Satvik Meals</h4>
+                                <p class="text-sm text-gray-600">Pure vegetarian prasadam included</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 reveal-text">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-saffron-100 flex items-center justify-center">
+                                <i data-lucide="shield" class="w-6 h-6 text-saffron-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-divine-charcoal mb-1">Travel Insurance</h4>
+                                <p class="text-sm text-gray-600">Comprehensive coverage included</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Image Grid -->
+                <div class="relative reveal-image">
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-saffron-200 rounded-full opacity-50"></div>
+                    <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-divine-blue/10 rounded-full opacity-50"></div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="http://static.photos/nature/320x240/201" alt="Temple Interior" class="rounded-2xl shadow-lg w-full h-48 object-cover transform translate-y-8">
+                        <img src="https://t3.ftcdn.net/jpg/02/09/19/92/240_F_209199215_W7LGHdmTbr4LNHisNlaxCMuMLFBtipb5.jpg" alt="Pilgrims" class="rounded-2xl shadow-lg w-full h-48 object-cover">
+                        <img src="https://t4.ftcdn.net/jpg/06/25/77/45/240_F_625774570_FmwS56NHaGNkgjANZFvkY4e9tAfOe2GP.jpg" alt="Ritual" class="rounded-2xl shadow-lg w-full h-48 object-cover transform translate-y-8">
+                        <img src="https://t4.ftcdn.net/jpg/09/72/25/73/240_F_972257385_CeOtbLFOjjXLz8m8xOKMS0t5eRVhWfgX.jpg" alt="Lamp Ceremony" class="rounded-2xl shadow-lg w-full h-48 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-gradient-to-b from-saffron-50 to-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-mandala-pattern opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 rounded-full bg-white text-saffron-600 text-sm font-semibold mb-4 shadow-sm reveal-text">
+                    Devotee Experiences
+                </span>
+                <h2 class="font-elegant text-4xl md:text-5xl font-bold text-divine-charcoal mb-4 reveal-text">
+                    Blessings Shared
+                </h2>
+            </div>
+
+            <!-- Testimonial Carousel -->
+            <div class="relative max-w-4xl mx-auto">
+                <div id="testimonialContainer" class="overflow-hidden">
+                    <div id="testimonialTrack" class="flex transition-transform duration-500 ease-out">
+                        <!-- Testimonial 1 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-xl relative">
+                                <div class="absolute -top-6 left-8 w-12 h-12 bg-saffron-500 rounded-full flex items-center justify-center text-white text-2xl font-serif">"</div>
+                                <p class="text-lg md:text-xl text-gray-700 italic mb-6 leading-relaxed">
+                                    "KRTX Tours made our family's first Tirupati darshan absolutely seamless. 
+                                    The VIP access saved us hours of waiting, and the hotel was right near the temple. 
+                                    The guide explained every ritual with such patience. Truly a divine experience!"
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <img src="http://static.photos/people/200x200/301" alt="Ramesh Kumar" class="w-14 h-14 rounded-full object-cover">
+                                    <div>
+                                        <h4 class="font-bold text-divine-charcoal">Ramesh Kumar</h4>
+                                        <p class="text-sm text-gray-500">Mumbai • Family Trip • June 2024</p>
+                                        <div class="flex gap-1 mt-1">
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-xl relative">
+                                <div class="absolute -top-6 left-8 w-12 h-12 bg-saffron-500 rounded-full flex items-center justify-center text-white text-2xl font-serif">"</div>
+                                <p class="text-lg md:text-xl text-gray-700 italic mb-6 leading-relaxed">
+                                    "As senior citizens, we were worried about the travel logistics. 
+                                    KRTX Tours provided exceptional care—wheelchair assistance, 
+                                    comfortable vehicle, and the staff treated us like family. 
+                                    Govinda Govinda!"
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <img src="http://static.photos/people/200x200/302" alt="Lakshmi Devi" class="w-14 h-14 rounded-full object-cover">
+                                    <div>
+                                        <h4 class="font-bold text-divine-charcoal">Lakshmi Devi</h4>
+                                        <p class="text-sm text-gray-500">Bangalore • Senior Citizen Package • May 2024</p>
+                                        <div class="flex gap-1 mt-1">
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-xl relative">
+                                <div class="absolute -top-6 left-8 w-12 h-12 bg-saffron-500 rounded-full flex items-center justify-center text-white text-2xl font-serif">"</div>
+                                <p class="text-lg md:text-xl text-gray-700 italic mb-6 leading-relaxed">
+                                    "We booked the South India Temple Tour covering 5 states. 
+                                    The itinerary was perfectly paced, accommodations were excellent, 
+                                    and the spiritual insights shared by our guide enriched our journey manifold. 
+                                    Highly recommended!"
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <img src="http://static.photos/people/200x200/303" alt="Suresh Patel" class="w-14 h-14 rounded-full object-cover">
+                                    <div>
+                                        <h4 class="font-bold text-divine-charcoal">Suresh Patel</h4>
+                                        <p class="text-sm text-gray-500">Ahmedabad • South India Tour • April 2024</p>
+                                        <div class="flex gap-1 mt-1">
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                            <i data-lucide="star" class="w-4 h-4 fill-saffron-400 text-saffron-400"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="flex justify-center gap-4 mt-8">
+                    <button onclick="prevTestimonial()" class="w-12 h-12 rounded-full border-2 border-saffron-200 flex items-center justify-center text-saffron-600 hover:bg-saffron-500 hover:text-white hover:border-saffron-500 transition-all">
+                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                    </button>
+                    <button onclick="nextTestimonial()" class="w-12 h-12 rounded-full border-2 border-saffron-200 flex items-center justify-center text-saffron-600 hover:bg-saffron-500 hover:text-white hover:border-saffron-500 transition-all">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.pexels.com/photos/5138790/pexels-photo-5138790.jpeg" alt="Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/70"></div>
+</div>
+        
+        <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur text-white text-sm font-medium mb-6 reveal-text">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                Begin Your Spiritual Journey Today
+            </div>
+            
+            <h2 class="font-elegant text-4xl md:text-6xl font-bold text-white mb-6 reveal-text">
+                Let Us Plan Your<br>
+                <span class="text-saffron-200">Divine Yatra</span>
+            </h2>
+            
+            <p class="text-lg text-white/90 mb-10 max-w-2xl mx-auto reveal-text">
+                Speak with our pilgrimage specialists who will craft a personalized itinerary 
+                based on your spiritual needs, budget, and travel preferences.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal-text">
+                <button onclick="openBookingModal()" class="btn-premium bg-white text-divine-blue px-8 py-4 rounded-full font-bold shadow-2xl hover:shadow-white/30 transform hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    Schedule Consultation
+                </button>
+                <a href="https://wa.me/918369013101" target="_blank" class="btn-premium bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-divine-blue transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    WhatsApp Us
+                </a>
+            </div>
+
+            <div class="mt-12 flex flex-wrap justify-center gap-8 text-white/80 text-sm reveal-text">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-saffron-300"></i>
+                    Free Itinerary Planning
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-saffron-300"></i>
+                    No Hidden Charges
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-saffron-300"></i>
+                    24/7 Support
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     
+<custom-footer></custom-footer>
+   
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeBookingModal()"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative transform scale-95 opacity-0 transition-all duration-300" id="modalContent">
+                <button onclick="closeBookingModal()" class="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors z-10">
+                    <i data-lucide="x" class="w-6 h-6 text-gray-600"></i>
+                </button>
+                
+                <div class="p-8">
+                    <div class="text-center mb-8">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-saffron-100 rounded-full mb-4">
+                            <i data-lucide="calendar-check" class="w-8 h-8 text-saffron-600"></i>
+                        </div>
+                        <h3 class="font-elegant text-2xl font-bold text-divine-charcoal mb-2">Plan Your Divine Journey</h3>
+                        <p class="text-gray-600 text-sm">Fill in your details and our pilgrimage expert will contact you within 24 hours.</p>
+                    </div>
+
+                    <form id="bookingForm" class="space-y-6" onsubmit="handleBookingSubmit(event)">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-saffron-500 focus:ring-2 focus:ring-saffron-200 outline-none transition-all" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-saffron-500 focus:ring-2 focus:ring-saffron-200 outline-none transition-all" placeholder="+91">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-saffron-500 focus:ring-2 focus:ring-saffron-200 outline-none transition-all" placeholder="email@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Destination</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-saffron-500 focus:ring-2 focus:ring-saffron-200 outline-none transition-all">
+                                    <option>Tirupati Balaji</option>
+                                    <option>Rameshwaram</option>
+                                    <option>Kanyakumari</option>
+                                    <option>South India Tour</option>
+                                    <option>Custom Package</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Travel Date</label>
+                                <input type="date" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-saffron-500 focus:ring-2 focus:ring-saffron-200 outline-none transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Number of Travelers</label>
+                                <input type="number" min="1" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-saffron-500 focus:ring-2 focus:ring-saffron-200 outline-none transition-all" placeholder="2">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Special Requirements</label>
+                            <textarea rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-saffron-500 focus:ring-2 focus:ring-saffron-200 outline-none transition-all resize-none" placeholder="Senior citizens, wheelchair access, dietary preferences..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full btn-premium bg-gradient-to-r from-saffron-400 to-saffron-600 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            Submit Request
+                        </button>
+                        
+                        <p class="text-center text-xs text-gray-500 mt-4">
+                            By submitting, you agree to receive calls/WhatsApp messages regarding your pilgrimage booking.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeVideoModal()"></div>
+        <div class="absolute inset-4 md:inset-12 flex items-center justify-center">
+            <div class="w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden relative">
+                <button onclick="closeVideoModal()" class="absolute top-4 right-4 z-10 p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors">
+                    <i data-lucide="x" class="w-6 h-6 text-white"></i>
+                </button>
+                <div class="w-full h-full flex items-center justify-center text-white">
+                    <div class="text-center">
+                        <i data-lucide="video" class="w-16 h-16 mx-auto mb-4 text-saffron-400"></i>
+                        <p class="text-xl font-medium">Video Experience Coming Soon</p>
+                        <p class="text-sm text-gray-400 mt-2">Immerse yourself in our pilgrimage journeys</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
